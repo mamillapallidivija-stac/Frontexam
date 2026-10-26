@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WanderWay | Explore the World</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}body{font-family:Arial,sans-serif;color:#18313b;background:#f7fbfa;line-height:1.6}
+header{display:flex;justify-content:space-between;align-items:center;padding:18px 8%;background:#fff;position:sticky;top:0;box-shadow:0 2px 12px #18313b12;z-index:2}
+.logo{font-size:24px;font-weight:800;color:#087e8b}nav a{margin-left:22px;text-decoration:none;color:#18313b;font-weight:600}
+.hero{min-height:440px;padding:90px 8%;color:white;background:linear-gradient(90deg,#092f3dcc,#092f3d35),url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1800&q=85') center/cover}
+.hero h1{font-size:clamp(38px,6vw,64px);line-height:1.08;max-width:650px}.hero p{margin:18px 0 25px;font-size:18px}
+.btn{display:inline-block;background:#ffb703;color:#17313b;padding:12px 20px;border-radius:8px;text-decoration:none;font-weight:700;border:0;cursor:pointer}
+section{padding:55px 8%}.section-title{text-align:center;font-size:30px;margin-bottom:8px}.sub{text-align:center;color:#64777c;margin-bottom:28px}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:22px}.card{background:#fff;border-radius:14px;overflow:hidden;box-shadow:0 8px 25px #18313b10}.card img{width:100%;height:180px;object-fit:cover}.card div{padding:17px}.card h3{margin-bottom:5px}.price{color:#087e8b;font-weight:800;margin-top:8px}
+.booking{background:#e7f5f3}.booking form{max-width:760px;margin:auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px;background:#fff;padding:22px;border-radius:14px}
+label{font-size:13px;font-weight:700}input,select{width:100%;padding:12px;border:1px solid #cad8d8;border-radius:7px;margin-top:5px;font:inherit}
+form button{grid-column:1/-1}#message{text-align:center;margin-top:15px;font-weight:700;color:#087e8b}
+footer{text-align:center;padding:25px;background:#12343d;color:#fff}
+@media(max-width:600px){header{padding:15px 5%;flex-wrap:wrap;gap:10px}nav a{margin:0 10px 0 0;font-size:14px}.hero{padding:70px 6%}section{padding:42px 6%}}
+</style>
+</head>
+<body>
+<header><div class="logo">✈ WanderWay</div><nav><a href="#home">Home</a><a href="#packages">Packages</a><a href="#booking">Book a Trip</a></nav></header>
+<main>
+<section class="hero" id="home"><h1>Your next adventure starts here.</h1><p>Discover beautiful places, unforgettable experiences, and trips made for you.</p><a class="btn" href="#packages">Explore Packages</a></section>
+<section id="packages"><h2 class="section-title">Popular Destinations</h2><p class="sub">A few favourite escapes to get you inspired.</p>
+<div class="cards">
+<article class="card"><img src="https://images.unsplash.com/photo-1593693397690-362cb9666fc2?auto=format&fit=crop&w=900&q=80" alt="Taj Mahal in Agra"><div><h3>Agra, India</h3><p>History, architecture and the iconic Taj Mahal.</p><p class="price">From ₹4,999 / person</p></div></article>
+<article class="card"><img src="https://images.unsplash.com/photo-1518509562904-e7ef99cdcc86?auto=format&fit=crop&w=900&q=80" alt="Tropical beach in Bali"><div><h3>Bali, Indonesia</h3><p>Peaceful beaches, green rice terraces and sunsets.</p><p class="price">From ₹24,999 / person</p></div></article>
+<article class="card"><img src="https://images.unsplash.com/photo-1524492412937-b28074a5d7da?auto=format&fit=crop&w=900&q=80" alt="Indian palace"><div><h3>Jaipur, India</h3><p>Colourful markets, royal forts and local food.</p><p class="price">From ₹6,499 / person</p></div></article>
+</div></section>
+<section class="booking" id="booking"><h2 class="section-title">Plan Your Trip</h2><p class="sub">Tell us what you have in mind.</p>
+<form id="tripForm"><div><label for="name">Your name</label><input id="name" required placeholder="Enter your name"></div><div><label for="destination">Destination</label><select id="destination" required><option value="">Choose a place</option><option>Agra</option><option>Bali</option><option>Jaipur</option><option>Other</option></select></div><div><label for="date">Travel date</label><input id="date" type="date" required></div><div><label for="people">Travellers</label><select id="people"><option>1 person</option><option>2 people</option><option>3 people</option><option>4+ people</option></select></div><button class="btn" type="submit">Request Booking</button></form><p id="message" aria-live="polite"></p></section>
+</main><footer>© 2026 WanderWay Travel · Explore more, worry less.</footer>
+<script>
+document.getElementById('tripForm').addEventListener('submit',function(e){
+e.preventDefault();
+const name=document.getElementById('name').value.trim();
+const place=document.getElementById('destination').value;
+const date=document.getElementById('date').value;
+document.getElementById('message').textContent=`Thanks, ${name}! Your trip request for ${place} on ${date} is ready. This demo does not send a real booking.`;
+});
+</script>
+</body>
+</html>
